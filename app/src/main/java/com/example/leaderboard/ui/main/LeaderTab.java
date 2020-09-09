@@ -1,5 +1,6 @@
 package com.example.leaderboard.ui.main;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -66,6 +67,9 @@ public class LeaderTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_leader_tab_list, container, false);
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.show();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -85,6 +89,7 @@ public class LeaderTab extends Fragment {
                 @Override
                 public void onResponse(Call<List<LearningLeader>> call, Response<List<LearningLeader>> response) {
                     recyclerView.setAdapter(new LearningRecyclerViewAdapter(getContext(),response.body()));
+                    progressDialog.cancel();
                     Log.d("TAG","Response = "+response.body());
                 }
 

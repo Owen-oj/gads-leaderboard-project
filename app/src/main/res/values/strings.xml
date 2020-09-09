@@ -2,4 +2,23 @@
     <string name="app_name">LEADERBOARD</string>
     <string name="tab_text_1">Learning Leaders</string>
     <string name="tab_text_2">Skill IQ Leaders</string>
+    <string name="submit_btn">Submit</string>
+    <string name="title_activity_form_submission">FormSubmissionActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="form_title">Project Submission</string>
+    <string name="projectSubmitBtn">Submit</string>
+    <string name="project_link_placeholder">Project on GITHUB(link)</string>
+    <string name="email_address_placeholder">Email Address</string>
+    <string name="last_name_placeholder">Last Name</string>
+    <string name="first_name_placeholder">First Name</string>
+    <string name="form_submit_dialogue_message">Are you sure ?</string>
+    <string name="form_submit_error_message">Submission not Successful</string>
+    <string name="form_submit_success_message">Submission  Successful</string>
 </resources>

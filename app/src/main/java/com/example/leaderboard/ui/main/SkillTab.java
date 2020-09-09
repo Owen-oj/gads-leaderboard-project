@@ -1,5 +1,6 @@
 package com.example.leaderboard.ui.main;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -66,6 +67,10 @@ public class SkillTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_skill_tab_list, container, false);
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setMessage("Loading...");
+        progressDialog.setCanceledOnTouchOutside(true);
+        progressDialog.show();
 
         // Set the adapter
         if (view instanceof RecyclerView) {
@@ -76,6 +81,7 @@ public class SkillTab extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
+
             GadsApiService gadsApiService = RetrofitInstance.getRetrofitInstance().create(GadsApiService.class);
 
             Call<List<SkillLeader>> call = gadsApiService.getSkillLeaders();
@@ -84,6 +90,7 @@ public class SkillTab extends Fragment {
                 @Override
                 public void onResponse(Call<List<SkillLeader>> call, Response<List<SkillLeader>> response) {
                     recyclerView.setAdapter(new SkillRecyclerViewAdapter(getContext(),response.body()));
+                    progressDialog.cancel();
                     Log.d("TAG","Response = "+response.body());
                 }
 
