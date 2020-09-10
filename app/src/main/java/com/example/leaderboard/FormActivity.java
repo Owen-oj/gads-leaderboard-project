@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import com.example.leaderboard.models.LearningLeader;
 import com.example.leaderboard.network.GadsApiService;
+import com.example.leaderboard.network.GoogleFormRetrofitInstance;
 import com.example.leaderboard.network.RetrofitInstance;
 import com.example.leaderboard.ui.main.LearningRecyclerViewAdapter;
 
@@ -95,7 +96,7 @@ public class FormActivity extends AppCompatActivity {
         progressDialog.show();
         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
-        GadsApiService gadsApiService = RetrofitInstance.getRetrofitInstance("https://docs.google.com/forms/d/e/").create(GadsApiService.class);
+        GadsApiService gadsApiService = GoogleFormRetrofitInstance.getGoogleFormRetrofitInstance().create(GadsApiService.class);
 
         Call<Void> call = gadsApiService.submitProject(email.getText().toString(), first_name.getText().toString(), last_name.getText().toString(), github_link.getText().toString());
 
@@ -108,7 +109,7 @@ public class FormActivity extends AppCompatActivity {
                 alertDialog.setCanceledOnTouchOutside(true);
                 alertDialog.show();
 
-                Log.d("TAG", "IsSuccessful? = " + response.isSuccessful());
+                Log.d("TAG", "IsSuccessful? = " + response.code());
             }
 
             @Override
