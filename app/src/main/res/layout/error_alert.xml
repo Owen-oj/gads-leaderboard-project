@@ -12,7 +12,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="117dp"
+        android:layout_height="100dp"
         android:tint="@color/dangerColor"
         app:srcCompat="@android:drawable/ic_dialog_alert" />
 

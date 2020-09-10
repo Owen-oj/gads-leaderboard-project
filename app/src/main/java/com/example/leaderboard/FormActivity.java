@@ -32,6 +32,7 @@ public class FormActivity extends AppCompatActivity {
     private EditText last_name;
     private EditText email;
     private EditText github_link;
+    AlertDialog alertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +76,9 @@ public class FormActivity extends AppCompatActivity {
         }
 
         if (validRequest) {
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+            AlertDialog.Builder alertDialogBuilder= new AlertDialog.Builder(this);
             alertDialogBuilder.setView(R.layout.custom_alert_dialogue);
-            AlertDialog alertDialog = alertDialogBuilder.create();
+             alertDialog = alertDialogBuilder.create();
             alertDialog.show();
         } else {
 
@@ -87,6 +88,7 @@ public class FormActivity extends AppCompatActivity {
     }
 
     public void submitProject(View view) {
+        alertDialog.hide();
         final ProgressDialog progressDialog = new ProgressDialog(this);
         progressDialog.setMessage("Loading...");
         progressDialog.setCanceledOnTouchOutside(true);
@@ -106,7 +108,7 @@ public class FormActivity extends AppCompatActivity {
                 alertDialog.setCanceledOnTouchOutside(true);
                 alertDialog.show();
 
-                Log.d("TAG", "Response = " + response.body());
+                Log.d("TAG", "IsSuccessful? = " + response.isSuccessful());
             }
 
             @Override

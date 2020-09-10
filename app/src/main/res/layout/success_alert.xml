@@ -12,8 +12,8 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="117dp"
-        tools:srcCompat="@drawable/round_check_mark" />
+        android:layout_height="100dp"
+        app:srcCompat="@drawable/round_check_mark" />
     <TextView
         android:id="@+id/dialogue_show_message"
         android:layout_width="match_parent"
