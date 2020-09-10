@@ -21,4 +21,5 @@
     <string name="form_submit_dialogue_message">Are you sure ?</string>
     <string name="form_submit_error_message">Submission not Successful</string>
     <string name="form_submit_success_message">Submission  Successful</string>
+    <string name="splash_screen">Splash Screen</string>
 </resources>
